@@ -14,18 +14,32 @@ This project explores:
 * 🛠️ **Algorithmic Mitigation:** Applying debiasing techniques to reduce demographic disparity while minimizing trade-offs in overall predictive accuracy (RMSE/MAE).
 
 ---
-
-## 📁 Repository Structure
+## 🏗️ System Architecture & Workflow
 
 ```text
-Gender-Bias-in-Recommendation-Systems/
-├── .gitignore               # Ignored files and virtual environments
-├── requirements.txt         # Project dependencies
-├── README.md                # Project documentation
-├── data/
-│   └── ml-100k/             # MovieLens 100K Benchmark Dataset
-│       ├── u.data           # User interaction logs (ratings)
-│       ├── u.item           # Movie metadata (genres, titles)
-│       └── u.user           # User demographics (age, gender, occupation)
-└── src/
-    └── final.ipynb          # End-to-end analysis, training, and evaluation notebook
+┌─────────────────────────────────────────────────────────┐
+│                    MovieLens 100K                       │
+│      (User Interactions, Movie Metadata, Demographics)  │
+└───────────────────────────┬─────────────────────────────┘
+                            │
+                            ▼
+┌─────────────────────────────────────────────────────────┐
+│              Exploratory Data Analysis                  │
+│       • Demographic Distributions & Interaction Patterns│
+│       • Rating Disparities & Preference Variance        │
+└───────────────────────────┬─────────────────────────────┘
+                            │
+                            ▼
+┌─────────────────────────────────────────────────────────┐
+│              Collaborative Filtering Models             │
+│       • User / Item KNN & Matrix Factorization (SVD)    │
+│       • Group-Level Performance Disparity (RMSE/MAE)    │
+└───────────────────────────┬─────────────────────────────┘
+                            │
+                            ▼
+┌─────────────────────────────────────────────────────────┐
+│          Bias Evaluation & Mitigation Engine            │
+│       • Fairness Metrics (FairNDCG, Disparate Impact)   │
+│       • Debiasing (Pre/In/Post-processing)              │
+└─────────────────────────────────────────────────────────┘
+
